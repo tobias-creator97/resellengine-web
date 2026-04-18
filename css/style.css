@@ -216,13 +216,26 @@ nav.scrolled {
 
 .hero-glow {
     position: absolute;
-    top: -20%;
+    top: -30%;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(111, 126, 255, 0.08) 0%, transparent 70%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(111, 126, 255, 0.07) 0%, rgba(127, 215, 255, 0.03) 40%, transparent 70%);
     pointer-events: none;
+    filter: blur(40px);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: 10%;
+    width: 500px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(127, 215, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(60px);
 }
 
 .hero-grid {
@@ -270,32 +283,32 @@ nav.scrolled {
 
 .iphone {
     width: 280px;
-    background: #1A1A1A;
-    border-radius: 44px;
-    padding: 12px;
+    background: #2A2A2A;
+    border-radius: 40px;
+    padding: 6px;
     position: relative;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 4px 12px rgba(0, 0, 0, 0.2),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .iphone-notch {
     position: absolute;
-    top: 12px;
+    top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 28px;
-    background: #0A0A0A;
-    border-radius: 0 0 18px 18px;
+    width: 90px;
+    height: 22px;
+    background: #1A1A1A;
+    border-radius: 14px;
     z-index: 2;
 }
 
 .iphone-screen {
     width: 100%;
-    border-radius: 34px;
+    border-radius: 35px;
     display: block;
     aspect-ratio: 9 / 19.5;
     object-fit: cover;
@@ -303,36 +316,37 @@ nav.scrolled {
 
 .iphone-sm {
     width: 220px;
-    border-radius: 36px;
-    padding: 10px;
+    border-radius: 34px;
+    padding: 5px;
 }
 
 .iphone-sm .iphone-notch {
-    top: 10px;
-    width: 80px;
-    height: 22px;
-    border-radius: 0 0 14px 14px;
+    top: 5px;
+    width: 72px;
+    height: 18px;
+    border-radius: 12px;
 }
 
 .iphone-sm .iphone-screen {
-    border-radius: 28px;
+    border-radius: 30px;
 }
 
 .phone-glow {
     position: absolute;
-    width: 340px;
-    height: 340px;
+    width: 360px;
+    height: 360px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(111, 126, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(111, 126, 255, 0.10) 0%, rgba(127, 215, 255, 0.04) 50%, transparent 70%);
     pointer-events: none;
-    animation: breathe 5s ease-in-out infinite;
+    filter: blur(30px);
+    animation: breathe 6s ease-in-out infinite;
 }
 
 @keyframes breathe {
-    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* =============================================================================
@@ -359,9 +373,13 @@ nav.scrolled {
 }
 
 .flow-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     border-color: var(--border-hover);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.flow-card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s, box-shadow 0.4s;
 }
 
 .flow-card .iphone {
@@ -679,8 +697,8 @@ footer {
 
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-delay: var(--delay, 0s);
 }
 

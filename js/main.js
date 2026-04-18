@@ -19,10 +19,12 @@ const observer = new IntersectionObserver(function (entries) {
 
 document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
 
-// Hero reveals on load
+// Hero reveals on load — staggered cascade
 window.addEventListener('load', function () {
-    document.querySelectorAll('.hero .reveal').forEach(function (el) {
-        el.classList.add('visible');
+    var heroEls = document.querySelectorAll('.hero .reveal');
+    heroEls.forEach(function (el, i) {
+        el.style.transitionDelay = (0.1 + i * 0.12) + 's';
+        setTimeout(function () { el.classList.add('visible'); }, 50);
     });
 });
 
