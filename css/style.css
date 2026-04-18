@@ -569,6 +569,11 @@ nav.scrolled {
     color: var(--cyan);
     font-weight: 500;
     font-size: 0.95rem;
+    margin-top: 20px;
+}
+
+.cta-success[hidden] {
+    display: none;
 }
 
 /* =============================================================================
